@@ -80,53 +80,54 @@ extern NBCAPP_NAME extend_app_list[EXTEND_APPLIST_LENGTH] = {
 
 /*-----　アプリオブジェクトの再生成・再メモリ確保　-----*/
 /*-----　main()内でdelete, 疑似コンストラクタ, 疑似デストラクトの起動を行っている.　------*/
-int8_t app_new(  uint8_t app_number, NBClockApp * app) {
+NBClockApp* app_new(  NBCAPP_NAME app_number) {
+  NBClockApp* tmp;
   switch ( app_number) {
     
     case NBCAPP_SIMPLE_CLOCK:
-      app = new SimpleClock();
+      tmp = new SimpleClock();
       break;
       
     /*
     case NBCAPP_EXTEND_CLOCK:
-      app = new ExtendClock();
+      tmp = new ExtendClock();
       break;
     */
       
     case NBCAPP_COLOR_CONTROLLER:
-      app = new ColorController();
+      tmp = new ColorController();
       break;
 
       
     case NBCAPP_WAVE_CONTROLLER:
-      app = new WaveController();
+      tmp = new WaveController();
       break;
 
       
     case NBCAPP_ALARM:
-      app = new Alarm();
+      tmp = new Alarm();
       break;
 
       
     case NBCAPP_KITCHEN_TIMER:
-      app = new KitchenTimer();
+      tmp = new KitchenTimer();
       break;
 
       
     case NBCAPP_ADJUST_CLOCK:
-      app = new AdjustClock();
+      tmp = new AdjustClock();
       break;
     
     /*
     case NBCAPP_STAINSGATE_CLOCK:
-      app = new StainsGate();
+      tmp = new StainsGate();
       break;
     */
 
       
     default:
-      app = new SimpleClock();
+      tmp = new SimpleClock();
       break;
   }
-  return 0;
+  return tmp;
 }

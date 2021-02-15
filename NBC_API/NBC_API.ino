@@ -142,7 +142,7 @@ void loop()
       app_change = false;
       app->app_destroy(apparg);
       delete app;
-      app_new( app_name, app);
+      app = app_new( app_name);
       app->app_setup(apparg);
     }
     
