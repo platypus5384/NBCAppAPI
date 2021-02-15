@@ -42,6 +42,8 @@ int8_t KitchenTimer::app_setup(AppArg *apparg){
   apparg->use_global = 1;
   _minute = 0;
   _sec = 0;
+  
+  apparg->timewatch->reset();
 }
 
 
