@@ -14,7 +14,7 @@
 #include "KitchenTimer.h"
 #include "Adjust_clock.h"
 /*-----　ここにユーザ定義アプリのヘッダincludeを書く　-----*/
-
+#include "Randomizer.h"
 
 /*-----　ここにユーザ定義アプリのヘッダincludeを書く　-----*/
 
@@ -41,7 +41,8 @@ typedef enum {
 	NBCAPP_EXTEND_CLOCK,
 	NBCAPP_STOP_WATCH,
 	
-	
+	/*-----　ここにユーザ定義アプリの識別子を入れる　-----*/
+	NBCAPP_RANDOMIZER,
 	/*-----　ここにユーザ定義アプリの識別子を入れる　-----*/
 	NBCAPP_PCS,
 	NBCAPP_NONE,
@@ -123,6 +124,11 @@ NBClockApp* app_new(  NBCAPP_NAME app_number) {
       tmp = new StainsGate();
       break;
     */
+	
+	
+	case NBCAPP_RANDOMIZER:
+	  tmp = new Randomizer();
+	  break;
 
       
     default:
